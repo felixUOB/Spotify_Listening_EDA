@@ -135,4 +135,36 @@ plt.show()
 # - Conversely, there is a moderate negative correlation between instrumentalness and popularity, indicating that purely instrumental tracks tend to attract less mainstream appeal, possibly due to their limited exposure on popular playlists and radio.
 # - Other features such as acousticness, liveness, and speechiness also show weak or negligible correlations, suggesting they play a smaller role in determining a track’s popularity.
 
+# ### 1.4.3. Genre-Based Insights
+
+# +
+genre_popularity = (
+    df_clean.groupby('track_genre')['popularity']
+    .mean()
+    .sort_values(ascending=False)
+    .head(20)                        
+)
+
+pprint(genre_popularity)
+
+# +
+# %% [markdown]
+# ### 1.4.4. Explicit Content vs Popularity
+
+# %%
+# Tempo distribution → are most songs clustered around ~120 BPM?
+# Relation between tempo and danceability or energy
+
+# %% [markdown]
+# ### 1.4.5. Key & Mode
+
+# %%
+# Genre Radar Charts – compare average audio profiles of genres
+# Cluster tracks based on features (K-Means or PCA for dimensionality reduction)
+# Predict popularity from audio features (simple regression model)
+
+# %% [markdown]
+# ## 1.5. Conclusion
+# -
+
 
